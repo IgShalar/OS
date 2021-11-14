@@ -56,12 +56,10 @@ int main(){
 //            close(p2[0]);
             
             close(p1[1]);
-//            cout << dup2(p1[0], 0) << endl;
             if (dup2(p1[0], 0) == -1){
                 perror("dup2 error");
                 return -1;
             }
-//            return -1;
             close(p1[0]);
             if (execl("b.out", s, NULL) < 0){
                 perror("execl error");
